@@ -40,3 +40,5 @@ public class Ass1AmountGraph {
 		System.out.println("The amount of puntuation marks are: " + Array.get(amount, 26));
 	}
 }
+
+//test
