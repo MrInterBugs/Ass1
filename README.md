@@ -1,10 +1,11 @@
 # Ass1
 Java Assessment Project 1
 
-A Assignment one – breaking the Caesar
-cypher
+A Assignment one – breaking the Caesar cypher
+
 Please see the ‘Coursework requirements and deadlines’ section of our website
 for submission deadlines, and for the contribution to your final course mark.
+
 Assessment criteria and feedback
 The parts of this assignment are not all of the same weight: the marks for each
 question are shown below. Some marks will be given for a correct approach
@@ -28,6 +29,7 @@ expect the course lecturer to give; in particular do not share code. It is an
 offence to submit somebody elese’s work under your own name, and it is also
 an offence to give your work to somebody else.
 150 ASSIGNMENT ONE – BREAKING THE CAESAR CYPHER
+
 A.1 Introduction
 The Caesar cypher is a particularly simple (i.e. not very effective) way of
 encrypting text. You can read about it at
@@ -40,6 +42,7 @@ In this assignment you will perform letter frequency analysis of a piece of
 text to test these claims. Your program could also be used to decrypt text with
 an unknown Caesar shift by looking for the most common letter and assumming
 that is an E.
+
 A.2 Preparing the input data [10 marks]
  Create a directory ass1 in your javaProgramming directory and begin
 editing a file called jc.txt
@@ -52,6 +55,7 @@ Of course, you should use whatever kind of editor pleases you.
 into your jc.txt file.
  Add your own name to this file, inserting it on a line of its own at the
 end.
+
 A.3 Reading the file [30 marks]
  Begin editing a Java programme called Ass1.java
 teaching$ kate Ass1.java &
@@ -63,7 +67,8 @@ jc.txt contains x lines
 where x is the number of lines in the file.
  Manually verify that the number of lines read in is indeed the number of
 line in the file.
-Counting letter frequencies [30 marks] 151
+Counting letter frequencies [30 marks]
+
 A.4 Counting letter frequencies [30 marks]
 We are now going to read through the file, counting letter frequencies. Note that
 we are treating lowercase characters such as a as equivalent to their uppercase
