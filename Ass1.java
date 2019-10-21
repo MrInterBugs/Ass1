@@ -11,6 +11,6 @@ class Ass1 {
 			scan.nextLine();
 			i++;
 		}
-		System.out.println("jc.txt contains " + i + " lines");
+		System.out.println("jc.txt contains " + i + " lines.");
 	}
 }
