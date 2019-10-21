@@ -83,6 +83,7 @@ hold the number of non-alphabetic characters.
 print out the letter it represents and the count within the file. In my test
 solution, there were 2 Q characters, four X characters and no Z characters.
 Your results might differ, depending on your name.
+
 A.5 Visualising the output [30 marks]
 Produce a diagram showing a histogram of the output. There are a variety
 of ways you might do this: you could print one out on the screen by using a
