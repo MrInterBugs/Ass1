@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
+	import java.lang.reflect.Array;
 import java.io.FileWriter;
 
 public class Ass1Amount {
@@ -50,8 +50,9 @@ public class Ass1Amount {
 		System.out.println("The amount of puntuation marks are: " + Array.get(amount, 26)); //Output the amount of puntuation.
 
 		//Writing the output of the system to a .txt file.
-		for(j=0; j < amount.length; j++) {
-			fw.write(amount[j] + "\n");
+		fw.write(amount[0] + ""); //This stops there from being a blank line at the start or end of the file.
+		for(j=1; j < amount.length; j++) {
+			fw.write("\n" + amount[j]);
 		}
 		fw.close(); //closing and saving the open file.
 	}
