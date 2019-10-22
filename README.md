@@ -1,4 +1,11 @@
 # Ass1
+INSTRUCTIONS
+To compile and run the code using javafx the commands for windows are:
+  set PATH_TO_FX="path\to\javafx-sdk-13\lib"
+  javac --module-path %PATH_TO_FX% --add-modules javafx.controls Ass1AmountGraph.java
+  java --module-path %PATH_TO_FX% --add-modules javafx.controls Ass1AmountGraph
+
+CRITERIA
 Java Assessment Project 1
 
 A Assignment one – breaking the Caesar cypher
