@@ -8,7 +8,7 @@ import java.io.FileWriter;
 public class Ass1Amount {
 	public static void main(String[] args) throws FileNotFoundException, Exception{ //run providing the text file is present.
 
-		char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray(); //Creating an array with the alphabet inside.
+		char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray(); //Creating an array with the alphabet inside. https://docs.oracle.com/javase/7/docs/api/java/lang/String.html
 
 		int[] amount = new int[27]; //Creating an array full of 27 blank spaces for counting the alphabet and puntuation marks.
 		int len = 0; //The total length of the file which has been imported.
@@ -17,7 +17,7 @@ public class Ass1Amount {
 
 		File txt = new File("jc.txt"); //Importing the text file that we are working with.
 		Scanner scan = new Scanner(txt); //Add the imported text file to Scanner utility.
-		FileWriter fw = new FileWriter("Ammount.txt"); //Creating a new file called ammount to allow the javafx application to have the data.
+		FileWriter fw = new FileWriter("Ammount.txt"); //Creating a new file called ammount to allow the javafx application to have the data. https://examples.javacodegeeks.com/core-java/io/filewriter/java-filewriter-example/
 
 		String full = ""; //Blank string to import the .txt file into.
 
@@ -27,7 +27,7 @@ public class Ass1Amount {
 			full = full + line;
 		}
 
-		full = full.replaceAll("\\s+",""); //Removing spaces from the imported text file.
+		full = full.replaceAll("\\s+",""); //Removing spaces from the imported text file. Found from https://stackoverflow.com/a/15633284.
 		full = full.toLowerCase(); //Making the whole import one case so it is easier to work with.
 		len = full.length(); //Calculate the total length of the string.
 
@@ -51,7 +51,8 @@ public class Ass1Amount {
 
 		//Writing the output of the system to a .txt file.
 		fw.write(amount[0] + ""); //This stops there from being a blank line at the start or end of the file.
-		for(j=1; j < amount.length; j++) {
+		int max = amount.length;
+		for(j=1; j<max; j++) {
 			fw.write("\n" + amount[j]);
 		}
 		fw.close(); //closing and saving the open file.

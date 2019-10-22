@@ -1,3 +1,8 @@
+/*
+As this was new to me I first started by looking at a few examples online.
+I ended up using https://docs.oracle.com/javafx/2/charts/bar-chart.htm which has mutiple examples and made my code based around this.
+*/
+
 //imports to manage reading from the file.
 import java.util.Scanner;
 import java.io.File;
@@ -10,9 +15,6 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Ass1AmountGraph extends Application {
@@ -37,21 +39,23 @@ public class Ass1AmountGraph extends Application {
 
 	@Override //Tells the compiler where the starting point for javafx is.
 
-    public void start(Stage primaryStage) {
+    public void start(Stage Stage) {
 
 			final CategoryAxis X = new CategoryAxis(); //Setting the varible for the x axis.
       final NumberAxis Y = new NumberAxis(); //Setting the varible for the y axis.
-      final BarChart<String,Number> barChart = new BarChart<>(X,Y); //Creating a list to store the data in.
+      final BarChart<String,Number> chart = new BarChart<>(X,Y); //Creating a list to store the data in.
 
-			//Allowing small gaps to stop bars from touching.
-      barChart.setCategoryGap(1);
-      barChart.setBarGap(1);
+			Stage.setTitle("Java Assessment One"); //Giving the window a name.
 
 			//Naming the axises.
 			X.setLabel("Alphabet");
       Y.setLabel("Letter Frequency");
 
-      XYChart.Series graph = new XYChart.Series();
+			//Allowing small gaps to stop bars from touching.
+			chart.setCategoryGap(1);
+      chart.setBarGap(1);
+
+      XYChart.Series graph = new XYChart.Series(); //Creating the series for the data to be stored in.
 
 			graph.setName("Counting letter frequencies"); //Giving the data in this series a name.
 
@@ -84,18 +88,11 @@ public class Ass1AmountGraph extends Application {
       graph.getData().add(new XYChart.Data("Z", ammount[25]));
       graph.getData().add(new XYChart.Data("Punctuation", ammount[26]));
 
-			barChart.getData().addAll(graph); //Adding the series to the list so that it can be used by javafx.
+			chart.getData().addAll(graph); //Adding the series to the list so that it can be used by javafx.
 
-      VBox vBox = new VBox();
-      vBox.getChildren().addAll(barChart);
+      Scene scene = new Scene(chart, 1200, 350); //settting the pixel dimensions of the scene.
 
-      StackPane main = new StackPane();
-      main.getChildren().add(vBox);
-
-      Scene scene = new Scene(main, 1200, 350); //settting the pixel dimensions of the scene.
-
-      primaryStage.setTitle("Java Assessment One"); //Giving the window a name.
-      primaryStage.setScene(scene);
-      primaryStage.show();
+      Stage.setScene(scene);
+      Stage.show();
 		}
 }
