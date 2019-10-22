@@ -1,7 +1,9 @@
+//imports to manage reading from the file.
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+//imports for javafx to create the bar chart.
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
@@ -34,18 +36,19 @@ public class Ass1AmountGraph extends Application {
 
     public void start(Stage primaryStage) {
 
-			final CategoryAxis xAxis = new CategoryAxis();
-      final NumberAxis yAxis = new NumberAxis();
-      final BarChart<String,Number> barChart = new BarChart<>(xAxis,yAxis);
+			final CategoryAxis X = new CategoryAxis();
+      final NumberAxis Y = new NumberAxis();
+      final BarChart<String,Number> barChart = new BarChart<>(X,Y);
 
       barChart.setCategoryGap(0);
       barChart.setBarGap(1);
 
-			xAxis.setLabel("Alphabet");
-      yAxis.setLabel("Letter Frequency");
+			X.setLabel("Alphabet");
+      Y.setLabel("Letter Frequency");
 
       XYChart.Series graph = new XYChart.Series();
 
+			graph.setName("Java Assessment One");
 			graph.getData().add(new XYChart.Data("A", ammount[0]));
       graph.getData().add(new XYChart.Data("B", ammount[1]));
       graph.getData().add(new XYChart.Data("C", ammount[2]));
@@ -72,17 +75,17 @@ public class Ass1AmountGraph extends Application {
       graph.getData().add(new XYChart.Data("X", ammount[23]));
       graph.getData().add(new XYChart.Data("Y", ammount[24]));
       graph.getData().add(new XYChart.Data("Z", ammount[25]));
-      graph.getData().add(new XYChart.Data("Puntuation", ammount[26]));
+      graph.getData().add(new XYChart.Data("Punctuation", ammount[26]));
 
 			barChart.getData().addAll(graph);
 
       VBox vBox = new VBox();
       vBox.getChildren().addAll(barChart);
 
-      StackPane root = new StackPane();
-      root.getChildren().add(vBox);
+      StackPane main = new StackPane();
+      main.getChildren().add(vBox);
 
-      Scene scene = new Scene(root, 1200, 350);
+      Scene scene = new Scene(main, 1200, 350);
 
       primaryStage.setTitle("Counting letter frequencies");
       primaryStage.setScene(scene);
