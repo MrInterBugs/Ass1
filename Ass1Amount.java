@@ -6,6 +6,7 @@ import java.lang.reflect.Array;
 
 public class Ass1Amount {
 	public static void main(String[] args) throws FileNotFoundException { //run providing the text file is present.
+
 		char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray(); //Creating an array with the alphabet inside.
 
 		int[] amount = new int[27]; //Creating an array full of 27 blank spaces for counting the alphabet and puntuation marks.

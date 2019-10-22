@@ -3,14 +3,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 class Ass1 {
-	public static void main(String[] args) throws FileNotFoundException {
-		int i = 0;
-		File txt = new File("jc.txt");
-		Scanner scan = new Scanner(txt);
+	public static void main(String[] args) throws FileNotFoundException { //run providing the text file is present.
+
+		int i = 0; //Varible to count the amount of lines.
+		File txt = new File("jc.txt"); //Importing the text file that we are working with.
+		Scanner scan = new Scanner(txt); //Add the imported text file to Scanner utility.
+
+		//Loop through the file counting each line untill it reaches the end.
 		while(scan.hasNextLine()) {
 			scan.nextLine();
 			i++;
 		}
-		System.out.println("jc.txt contains " + i + " lines.");
+
+		System.out.println("jc.txt contains " + i + " lines."); //output the number of lines.
 	}
 }
