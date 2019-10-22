@@ -10,7 +10,9 @@ To compile and run the code using javafx the commands for windows are:
   
   java --module-path %PATH_TO_FX% --add-modules javafx.controls Ass1AmountGraph
 
+
 CRITERIA
+
 Java Assessment Project 1
 
 A Assignment one – breaking the Caesar cypher
