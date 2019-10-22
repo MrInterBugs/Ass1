@@ -17,38 +17,45 @@ import javafx.stage.Stage;
 
 public class Ass1AmountGraph extends Application {
 
-	static int[] ammount = new int[27];
+	static int[] ammount = new int[27]; //Create the array to read the text file into.
 
 	public static void main(String[] args) throws FileNotFoundException {
-		int i = 0;
-		File txt = new File("Ammount.txt");
-		Scanner scan = new Scanner(txt);
 
+		int i = 0; //Used to place read ints into the correct place in array.
+		File txt = new File("Ammount.txt"); //Importing the text file that we are working with.
+		Scanner scan = new Scanner(txt); //Add the imported text file to Scanner utility.
+
+		//Add all the infomation from the text file into the array.
 		while(scan.hasNextLine()) {
 			int line = scan.nextInt();
 			ammount[i] = line;
 			i++;
 		}
-		launch(args);
+
+		launch(args); //Start javafx by "ignoring" main.
 	}
 
-	@Override
+	@Override //Tells the compiler where the starting point for javafx is.
 
     public void start(Stage primaryStage) {
 
-			final CategoryAxis X = new CategoryAxis();
-      final NumberAxis Y = new NumberAxis();
-      final BarChart<String,Number> barChart = new BarChart<>(X,Y);
+			final CategoryAxis X = new CategoryAxis(); //Setting the varible for the x axis.
+      final NumberAxis Y = new NumberAxis(); //Setting the varible for the y axis.
+      final BarChart<String,Number> barChart = new BarChart<>(X,Y); //Creating a list to store the data in.
 
-      barChart.setCategoryGap(0);
+			//Allowing small gaps to stop bars from touching.
+      barChart.setCategoryGap(1);
       barChart.setBarGap(1);
 
+			//Naming the axises.
 			X.setLabel("Alphabet");
       Y.setLabel("Letter Frequency");
 
       XYChart.Series graph = new XYChart.Series();
 
-			graph.setName("Java Assessment One");
+			graph.setName("Counting letter frequencies"); //Giving the data in this series a name.
+
+			//Adding infomation points to the series.
 			graph.getData().add(new XYChart.Data("A", ammount[0]));
       graph.getData().add(new XYChart.Data("B", ammount[1]));
       graph.getData().add(new XYChart.Data("C", ammount[2]));
@@ -77,7 +84,7 @@ public class Ass1AmountGraph extends Application {
       graph.getData().add(new XYChart.Data("Z", ammount[25]));
       graph.getData().add(new XYChart.Data("Punctuation", ammount[26]));
 
-			barChart.getData().addAll(graph);
+			barChart.getData().addAll(graph); //Adding the series to the list so that it can be used by javafx.
 
       VBox vBox = new VBox();
       vBox.getChildren().addAll(barChart);
@@ -85,9 +92,9 @@ public class Ass1AmountGraph extends Application {
       StackPane main = new StackPane();
       main.getChildren().add(vBox);
 
-      Scene scene = new Scene(main, 1200, 350);
+      Scene scene = new Scene(main, 1200, 350); //settting the pixel dimensions of the scene.
 
-      primaryStage.setTitle("Counting letter frequencies");
+      primaryStage.setTitle("Java Assessment One"); //Giving the window a name.
       primaryStage.setScene(scene);
       primaryStage.show();
 		}
