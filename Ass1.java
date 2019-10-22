@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 class Ass1 {
-	public static void main(String[] args) throws FileNotFoundException { //run providing the text file is present.
+	public static void main(String[] args) throws FileNotFoundException { //run providing the text file is present. https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileNotFoundException.html
 
 		int i = 0; //Varible to count the amount of lines.
 		File txt = new File("jc.txt"); //Importing the text file that we are working with.
