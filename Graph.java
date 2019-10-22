@@ -19,18 +19,18 @@ import javafx.stage.Stage;
 
 public class Graph extends Application {
 
-	static int[] ammount = new int[27]; //Create the array to read the text file into.
+	static int[] amount = new int[27]; //Create the array to read the text file into.
 
 	public static void main(String[] args) throws FileNotFoundException {
 
 		int i = 0; //Used to place read ints into the correct place in array.
-		File txt = new File("Ammount.txt"); //Importing the text file that we are working with.
+		File txt = new File("Amount.txt"); //Importing the text file that we are working with.
 		Scanner scan = new Scanner(txt); //Add the imported text file to Scanner utility.
 
 		//Add all the infomation from the text file into the array.
 		while(scan.hasNextLine()) {
 			int line = scan.nextInt();
-			ammount[i] = line;
+			amount[i] = line;
 			i++;
 		}
 
@@ -60,33 +60,33 @@ public class Graph extends Application {
 			graph.setName("Counting letter frequencies"); //Giving the data in this series a name.
 
 			//Adding infomation points to the series.
-			graph.getData().add(new XYChart.Data("A", ammount[0]));
-      graph.getData().add(new XYChart.Data("B", ammount[1]));
-      graph.getData().add(new XYChart.Data("C", ammount[2]));
-      graph.getData().add(new XYChart.Data("D", ammount[3]));
-      graph.getData().add(new XYChart.Data("E", ammount[4]));
-      graph.getData().add(new XYChart.Data("F", ammount[5]));
-      graph.getData().add(new XYChart.Data("G", ammount[6]));
-      graph.getData().add(new XYChart.Data("H", ammount[7]));
-      graph.getData().add(new XYChart.Data("I", ammount[8]));
-      graph.getData().add(new XYChart.Data("J", ammount[9]));
-			graph.getData().add(new XYChart.Data("K", ammount[10]));
-      graph.getData().add(new XYChart.Data("L", ammount[11]));
-      graph.getData().add(new XYChart.Data("M", ammount[12]));
-      graph.getData().add(new XYChart.Data("N", ammount[13]));
-      graph.getData().add(new XYChart.Data("O", ammount[14]));
-      graph.getData().add(new XYChart.Data("P", ammount[15]));
-      graph.getData().add(new XYChart.Data("Q", ammount[16]));
-      graph.getData().add(new XYChart.Data("R", ammount[17]));
-      graph.getData().add(new XYChart.Data("S", ammount[18]));
-      graph.getData().add(new XYChart.Data("T", ammount[19]));
-			graph.getData().add(new XYChart.Data("U", ammount[20]));
-      graph.getData().add(new XYChart.Data("V", ammount[21]));
-      graph.getData().add(new XYChart.Data("W", ammount[22]));
-      graph.getData().add(new XYChart.Data("X", ammount[23]));
-      graph.getData().add(new XYChart.Data("Y", ammount[24]));
-      graph.getData().add(new XYChart.Data("Z", ammount[25]));
-      graph.getData().add(new XYChart.Data("Punctuation", ammount[26]));
+			graph.getData().add(new XYChart.Data("A", amount[0]));
+      graph.getData().add(new XYChart.Data("B", amount[1]));
+      graph.getData().add(new XYChart.Data("C", amount[2]));
+      graph.getData().add(new XYChart.Data("D", amount[3]));
+      graph.getData().add(new XYChart.Data("E", amount[4]));
+      graph.getData().add(new XYChart.Data("F", amount[5]));
+      graph.getData().add(new XYChart.Data("G", amount[6]));
+      graph.getData().add(new XYChart.Data("H", amount[7]));
+      graph.getData().add(new XYChart.Data("I", amount[8]));
+      graph.getData().add(new XYChart.Data("J", amount[9]));
+			graph.getData().add(new XYChart.Data("K", amount[10]));
+      graph.getData().add(new XYChart.Data("L", amount[11]));
+      graph.getData().add(new XYChart.Data("M", amount[12]));
+      graph.getData().add(new XYChart.Data("N", amount[13]));
+      graph.getData().add(new XYChart.Data("O", amount[14]));
+      graph.getData().add(new XYChart.Data("P", amount[15]));
+      graph.getData().add(new XYChart.Data("Q", amount[16]));
+      graph.getData().add(new XYChart.Data("R", amount[17]));
+      graph.getData().add(new XYChart.Data("S", amount[18]));
+      graph.getData().add(new XYChart.Data("T", amount[19]));
+			graph.getData().add(new XYChart.Data("U", amount[20]));
+      graph.getData().add(new XYChart.Data("V", amount[21]));
+      graph.getData().add(new XYChart.Data("W", amount[22]));
+      graph.getData().add(new XYChart.Data("X", amount[23]));
+      graph.getData().add(new XYChart.Data("Y", amount[24]));
+      graph.getData().add(new XYChart.Data("Z", amount[25]));
+      graph.getData().add(new XYChart.Data("Punctuation", amount[26]));
 
 			chart.getData().addAll(graph); //Adding the series to the list so that it can be used by javafx.
 

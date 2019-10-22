@@ -17,7 +17,7 @@ public class Alphabetical {
 
 		File txt = new File("jc.txt"); //Importing the text file that we are working with.
 		Scanner scan = new Scanner(txt); //Add the imported text file to Scanner utility.
-		FileWriter fw = new FileWriter("Ammount.txt"); //Creating a new file called ammount to allow the javafx application to have the data. https://examples.javacodegeeks.com/core-java/io/filewriter/java-filewriter-example/
+		FileWriter fw = new FileWriter("Amount.txt"); //Creating a new file called amount to allow the javafx application to have the data. https://examples.javacodegeeks.com/core-java/io/filewriter/java-filewriter-example/
 
 		String full = ""; //Blank string to import the .txt file into.
 
@@ -43,7 +43,7 @@ public class Alphabetical {
 		int sum = Arrays.stream(amount).sum(); //Total the size of the array.
 		amount[26] = len - sum; //Calculate the puntuation marks by taking the full length minus the total array size.
 
-		//Output the total ammount of charictures in the text file.
+		//Output the total amount of charictures in the text file.
 		for(j=0; j<26; j++) {
 			System.out.println("The amount of " + (char)Array.get(alphabet,j) + "'s are: " + Array.get(amount, j));
 		}
