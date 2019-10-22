@@ -3,42 +3,55 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
-import javafx.*;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
-public class Ass1AmountGraph {
-	public static void main(String[] args) throws FileNotFoundException {
-		char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-		int[] amount = new int[27];
-		int len = 0;
-		int i = 0;
-		int j = 0;
-		File txt = new File("jc.txt");
-		String full = "";
-		int count = 0;
-		Scanner scan = new Scanner(txt);
+public class Ass1Amount {
+	public static void main(String[] args) throws FileNotFoundException { //run providing the text file is present.
+
+		char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray(); //Creating an array with the alphabet inside.
+
+		int[] amount = new int[27]; //Creating an array full of 27 blank spaces for counting the alphabet and puntuation marks.
+		int len = 0; //The total length of the file which has been imported.
+		int i = 0; //Used to keep track of point in the text file.
+		int j = 0; //Used to keep track of point in alphabet.
+
+		File txt = new File("jc.txt"); //Importing the text file that we are working with.
+		Scanner scan = new Scanner(txt); //Add the imported text file to Scanner utility.
+
+		String full = ""; //Blank string to import the .txt file into.
+
+		//Loop through the text file adding each line to the varible full untill the end of the file is reached.
 		while(scan.hasNextLine()) {
 			String line = scan.nextLine();
 			full = full + line;
 		}
-		full = full.replaceAll("\\s+","");
-		full = full.toLowerCase();
-		len=full.length();
+
+		full = full.replaceAll("\\s+",""); //Removing spaces from the imported text file.
+		full = full.toLowerCase(); //Making the whole import one case so it is easier to work with.
+		len = full.length(); //Calculate the total length of the string.
+
+		//Loop through the full varible counting the amount a charicture appears for the whole alphabet.
 		for(j=0; j<26; j++) {
 			for(i=0; i<len; i++) {
 				if(full.charAt(i) == (char)Array.get(alphabet,j)) {
-					count++;
+					amount[j] = amount[j] + 1;
 				}
 			}
-			amount[j] = count;
-			count = 0;
 		}
-		int sum = Arrays.stream(amount).sum();
-		amount[26] = len - sum;
+
+		int sum = Arrays.stream(amount).sum(); //Total the size of the array.
+		amount[26] = len - sum; //Calculate the puntuation marks by taking the full length minus the total array size.
+
+		//Output the total ammount of charictures in the text file.
 		for(j=0; j<26; j++) {
 			System.out.println("The amount of " + (char)Array.get(alphabet,j) + "'s are: " + Array.get(amount, j));
 		}
-		System.out.println("The amount of puntuation marks are: " + Array.get(amount, 26));
+		System.out.println("The amount of puntuation marks are: " + Array.get(amount, 26)); //Output the amount of puntuation.
 	}
 }
-
-//test
