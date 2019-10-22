@@ -1,57 +1,91 @@
-import java.util.Arrays;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
+
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Ass1Amount {
-	public static void main(String[] args) throws FileNotFoundException { //run providing the text file is present.
+public class Ass1AmountGraph extends Application {
 
-		char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray(); //Creating an array with the alphabet inside.
+	static int[] ammount = new int[27];
 
-		int[] amount = new int[27]; //Creating an array full of 27 blank spaces for counting the alphabet and puntuation marks.
-		int len = 0; //The total length of the file which has been imported.
-		int i = 0; //Used to keep track of point in the text file.
-		int j = 0; //Used to keep track of point in alphabet.
+	public static void main(String[] args) throws FileNotFoundException {
+		int i = 0;
+		File txt = new File("Ammount.txt");
+		Scanner scan = new Scanner(txt);
 
-		File txt = new File("jc.txt"); //Importing the text file that we are working with.
-		Scanner scan = new Scanner(txt); //Add the imported text file to Scanner utility.
-
-		String full = ""; //Blank string to import the .txt file into.
-
-		//Loop through the text file adding each line to the varible full untill the end of the file is reached.
 		while(scan.hasNextLine()) {
-			String line = scan.nextLine();
-			full = full + line;
+			int line = scan.nextInt();
+			ammount[i] = line;
+			i++;
 		}
-
-		full = full.replaceAll("\\s+",""); //Removing spaces from the imported text file.
-		full = full.toLowerCase(); //Making the whole import one case so it is easier to work with.
-		len = full.length(); //Calculate the total length of the string.
-
-		//Loop through the full varible counting the amount a charicture appears for the whole alphabet.
-		for(j=0; j<26; j++) {
-			for(i=0; i<len; i++) {
-				if(full.charAt(i) == (char)Array.get(alphabet,j)) {
-					amount[j] = amount[j] + 1;
-				}
-			}
-		}
-
-		int sum = Arrays.stream(amount).sum(); //Total the size of the array.
-		amount[26] = len - sum; //Calculate the puntuation marks by taking the full length minus the total array size.
-
-		//Output the total ammount of charictures in the text file.
-		for(j=0; j<26; j++) {
-			System.out.println("The amount of " + (char)Array.get(alphabet,j) + "'s are: " + Array.get(amount, j));
-		}
-		System.out.println("The amount of puntuation marks are: " + Array.get(amount, 26)); //Output the amount of puntuation.
+		launch(args);
 	}
+
+	@Override
+
+    public void start(Stage primaryStage) {
+
+			final CategoryAxis xAxis = new CategoryAxis();
+      final NumberAxis yAxis = new NumberAxis();
+      final BarChart<String,Number> barChart = new BarChart<>(xAxis,yAxis);
+
+      barChart.setCategoryGap(0);
+      barChart.setBarGap(1);
+
+			xAxis.setLabel("Alphabet");
+      yAxis.setLabel("Letter Frequency");
+
+      XYChart.Series graph = new XYChart.Series();
+
+			graph.getData().add(new XYChart.Data("A", ammount[0]));
+      graph.getData().add(new XYChart.Data("B", ammount[1]));
+      graph.getData().add(new XYChart.Data("C", ammount[2]));
+      graph.getData().add(new XYChart.Data("D", ammount[3]));
+      graph.getData().add(new XYChart.Data("E", ammount[4]));
+      graph.getData().add(new XYChart.Data("F", ammount[5]));
+      graph.getData().add(new XYChart.Data("G", ammount[6]));
+      graph.getData().add(new XYChart.Data("H", ammount[7]));
+      graph.getData().add(new XYChart.Data("I", ammount[8]));
+      graph.getData().add(new XYChart.Data("J", ammount[9]));
+			graph.getData().add(new XYChart.Data("K", ammount[10]));
+      graph.getData().add(new XYChart.Data("L", ammount[11]));
+      graph.getData().add(new XYChart.Data("M", ammount[12]));
+      graph.getData().add(new XYChart.Data("N", ammount[13]));
+      graph.getData().add(new XYChart.Data("O", ammount[14]));
+      graph.getData().add(new XYChart.Data("P", ammount[15]));
+      graph.getData().add(new XYChart.Data("Q", ammount[16]));
+      graph.getData().add(new XYChart.Data("R", ammount[17]));
+      graph.getData().add(new XYChart.Data("S", ammount[18]));
+      graph.getData().add(new XYChart.Data("T", ammount[19]));
+			graph.getData().add(new XYChart.Data("U", ammount[20]));
+      graph.getData().add(new XYChart.Data("V", ammount[21]));
+      graph.getData().add(new XYChart.Data("W", ammount[22]));
+      graph.getData().add(new XYChart.Data("X", ammount[23]));
+      graph.getData().add(new XYChart.Data("Y", ammount[24]));
+      graph.getData().add(new XYChart.Data("Z", ammount[25]));
+      graph.getData().add(new XYChart.Data("Puntuation", ammount[26]));
+
+			barChart.getData().addAll(graph);
+
+      VBox vBox = new VBox();
+      vBox.getChildren().addAll(barChart);
+
+      StackPane root = new StackPane();
+      root.getChildren().add(vBox);
+
+      Scene scene = new Scene(root, 1200, 350);
+
+      primaryStage.setTitle("Counting letter frequencies");
+      primaryStage.setScene(scene);
+      primaryStage.show();
+		}
 }
