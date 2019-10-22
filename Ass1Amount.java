@@ -3,9 +3,10 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
+import java.io.FileWriter;
 
 public class Ass1Amount {
-	public static void main(String[] args) throws FileNotFoundException { //run providing the text file is present.
+	public static void main(String[] args) throws FileNotFoundException, Exception{ //run providing the text file is present.
 
 		char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray(); //Creating an array with the alphabet inside.
 
@@ -16,6 +17,7 @@ public class Ass1Amount {
 
 		File txt = new File("jc.txt"); //Importing the text file that we are working with.
 		Scanner scan = new Scanner(txt); //Add the imported text file to Scanner utility.
+		FileWriter fw = new FileWriter("Ammount.txt"); //Creating a new file called ammount to allow the javafx application to have the data.
 
 		String full = ""; //Blank string to import the .txt file into.
 
@@ -46,5 +48,11 @@ public class Ass1Amount {
 			System.out.println("The amount of " + (char)Array.get(alphabet,j) + "'s are: " + Array.get(amount, j));
 		}
 		System.out.println("The amount of puntuation marks are: " + Array.get(amount, 26)); //Output the amount of puntuation.
+
+		//Writing the output of the system to a .txt file.
+		for(j=0; j < amount.length; j++) {
+			fw.write(amount[j] + "\n");
+		}
+		fw.close(); //closing and saving the open file.
 	}
 }
