@@ -2,7 +2,13 @@
 
 INSTRUCTIONS
 
-To compile and run the code using javafx the commands for windows are:
+To compile and run the Alphabet.java and Lines.java the commands for windows are:
+
+  javac Lines.java | javac Alphabet.java
+
+  java Lines | java Alphabet
+
+To compile and run the Graph.java using javafx the commands for windows are:
 
   set PATH_TO_FX="path\to\javafx-sdk-13\lib"
 
