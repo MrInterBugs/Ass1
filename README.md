@@ -2,19 +2,19 @@
 
 INSTRUCTIONS
 
-To compile and run the Alphabet.java and Lines.java the commands for windows are:
+To compile and run Ass1.java the command for windows and linux are:
 
-  javac Lines.java | javac Alphabet.java
+  javac Ass1.java
 
-  java Lines | java Alphabet
+  java Ass1
 
-To compile and run the Graph.java using javafx the commands for windows are:
+To compile and run the Graph.java using javafx the commands are:
 
-  set PATH_TO_FX="path\to\javafx-sdk-13\lib"
+  NOTE YOU HAVE TO HAVE COMPLILED AND RUN THE FIRST PROGRAM BEFORE THIS ONE WILL WORK!
 
-  javac --module-path %PATH_TO_FX% --add-modules javafx.controls Graph.java
+  javac --module-path /usr/share/openjfx/lib/ --add-modules javafx.controls Graph.java
 
-  java --module-path %PATH_TO_FX% --add-modules javafx.controls Graph
+  java --module-path /usr/share/openjfx/lib/ --add-modules javafx.controls Graph
 
 
 CRITERIA

@@ -5,8 +5,20 @@ import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.io.FileWriter;
 
-public class Alphabetical {
+public class Ass1 {
 	public static void main(String[] args) throws FileNotFoundException, Exception{ //run providing the text file is present.
+
+		int lines = 0; //Varible to count the amount of lines.
+		File txt = new File("jc.txt"); //Importing the text file that we are working with.
+		Scanner scanner = new Scanner(txt); //Add the imported text file to Scanner utility.
+
+		//Loop through the file counting each line untill it reaches the end.
+		while(scanner.hasNextLine()) {
+			scanner.nextLine();
+			lines++;
+		}
+
+		System.out.println("jc.txt contains " + lines + " lines."); //output the number of lines.
 
 		char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray(); //Creating an array with the alphabet inside. https://docs.oracle.com/javase/7/docs/api/java/lang/String.html
 
@@ -15,7 +27,6 @@ public class Alphabetical {
 		int i = 0; //Used to keep track of point in the text file.
 		int j = 0; //Used to keep track of point in alphabet.
 
-		File txt = new File("jc.txt"); //Importing the text file that we are working with.
 		Scanner scan = new Scanner(txt); //Add the imported text file to Scanner utility.
 		FileWriter fw = new FileWriter("Amount.txt"); //Creating a new file called amount to allow the javafx application to have the data. https://examples.javacodegeeks.com/core-java/io/filewriter/java-filewriter-example/
 
@@ -55,6 +66,7 @@ public class Alphabetical {
 		for(j=1; j<max; j++) {
 			fw.write("\n" + amount[j]);
 		}
+		fw.write("\n" + amount[26]); //I do not know why this line is needed, on my own version of java the punuation marks are added to the file through the loop.
 		fw.close(); //closing and saving the open file.
 	}
 }

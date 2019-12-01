@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 public class Graph extends Application {
 
-	static int[] amount = new int[27]; //Create the array to read the text file into.
+	static int[] amount = new int[28]; //Create the array to read the text file into.
 
 	public static void main(String[] args) throws FileNotFoundException {
 
